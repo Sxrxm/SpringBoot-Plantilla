@@ -3,6 +3,8 @@ package com.farukgenc.boilerplate.springboot.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 
 /**
  * Created on Ağustos, 2020
@@ -34,4 +36,9 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private UserRole userRole;
 
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<Sala> salas;
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<Reserva> reserva;
 }
