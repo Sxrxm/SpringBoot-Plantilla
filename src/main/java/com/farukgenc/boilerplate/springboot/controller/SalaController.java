@@ -33,7 +33,7 @@ public class SalaController {
     }
 
 
-    @PostMapping
+    /*@PostMapping
     public ResponseEntity<Sala> registrarSala(@RequestBody Sala sala, Authentication authentication) {
         if (authentication == null || !authentication.isAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
@@ -47,14 +47,12 @@ public class SalaController {
         sala.setUser(user);
         Sala nuevaSala = salaService.save(sala);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevaSala);
-    }
-    /*@PostMapping
-    public ResponseEntity<Sala> registrarSala(@RequestBody Sala sala) {
-        if (sala == null) {
-            return ResponseEntity.badRequest().build();
-        }
-        return ResponseEntity.ok(salaService.save(sala));
     }*/
+    @PostMapping
+    public ResponseEntity<Sala> registrarSala(@RequestBody Sala sala) {
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(salaService.save(sala));
+    }
 
 
 }

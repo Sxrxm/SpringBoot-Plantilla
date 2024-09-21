@@ -48,8 +48,8 @@ public class SecurityConfiguration {
 																          "/swagger-ui/**",
 																	      "/swagger-ui.html",
 																	      "/actuator/**")
-													   .permitAll().requestMatchers(HttpMethod.POST, "/salas").hasAnyRole("USER", "ADMIN")
-						.											requestMatchers(HttpMethod.POST, "/salas").hasAnyRole("ADMIN", "USER")
+													   .permitAll()
+														.requestMatchers(HttpMethod.POST, "/salas").hasAuthority("ADMIN")
 													   .anyRequest()
 													   .authenticated())
 				.sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

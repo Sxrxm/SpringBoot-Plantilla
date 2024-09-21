@@ -42,6 +42,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		final UserRole userRole = authenticatedUser.getUserRole();
 		final SimpleGrantedAuthority grantedAuthority = new SimpleGrantedAuthority(userRole.name());
 
+
 		return new User(authenticatedUsername, authenticatedPassword, Collections.singletonList(grantedAuthority));
 	}
 }
